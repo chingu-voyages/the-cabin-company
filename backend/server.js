@@ -1,6 +1,8 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+import cabinRoutes from './routes/cabinRoutes.js';
 
 dotenv.config();
 
