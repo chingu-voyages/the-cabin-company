@@ -10,24 +10,5 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-//Connect MongoDb database
-const connectToDb = async () => {
-    try {
-        const connection = await mongoose.connect(process.env.MONGODB_URI, {
-            useUnifiedTopology: true,
-            useNewUrlParser: true,
-            useCreateIndex: true
-        });
-        console.log('Database connected');
-    } catch (error) {
-        console.log(error.message);
-        process.exit(1);
-    }
-};
-
-connectToDb();
-
-app.use('/api/cabins', cabinRoutes);
-
 //Start server
-app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}...`));
+app.listen(5000, () => console.log(`Listening on port ${process.env.PORT}...`));
