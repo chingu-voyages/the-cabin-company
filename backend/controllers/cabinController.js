@@ -40,7 +40,8 @@ export const createCabin = async (req, res) => {
             streetAddress: req.body.streetAddress,
             zipCode: req.body.zipCode,
             beds: req.body.beds,
-            baths: req.body.baths
+            baths: req.body.baths,
+            image: req.body.image
         });
 
         const newCabin = await cabin.save();

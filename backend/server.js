@@ -27,5 +27,7 @@ const connectToDb = async () => {
 
 connectToDb();
 
+app.use('/api/cabins', cabinRoutes);
+
 //Start server
 app.listen(5000, () => console.log(`Listening on port ${process.env.PORT}...`));

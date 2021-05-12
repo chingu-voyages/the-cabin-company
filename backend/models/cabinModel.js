@@ -23,6 +23,9 @@ const cabinSchema = mongoose.Schema({
     },
     baths: {
         type: Number
+    },
+    image: {
+        type: String
     }
 });
 
