@@ -1,6 +1,8 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+import cabinRoutes from './routes/cabinRoutes.js';
 
 dotenv.config();
 
@@ -24,6 +26,8 @@ const connectToDb = async () => {
 };
 
 connectToDb();
+
+app.use('/api/cabins', cabinRoutes);
 
 //Start server
 app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}...`));
