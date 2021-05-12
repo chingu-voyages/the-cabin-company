@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -8,4 +9,4 @@ const app = express();
 app.use(express.json());
 
 //Start server
-app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}...`));
+app.listen(5000, () => console.log(`Listening on port ${process.env.PORT}...`));
