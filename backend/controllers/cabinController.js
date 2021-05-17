@@ -38,9 +38,8 @@ export const createCabin = asyncHandler(async (req, res) => {
 
     const cabin = new Cabin({
         name: req.body.name,
-        price: req.body.price,
-        streetAddress: req.body.streetAddress,
-        zipCode: req.body.zipCode,
+        pricePerNight: req.body.pricePerNight,
+        address: req.body.address,
         beds: req.body.beds,
         baths: req.body.baths,
         image: req.body.image

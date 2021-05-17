@@ -6,21 +6,15 @@ const cabinSchema = mongoose.Schema({
         required: true,
         trim: true
     },
-    price: {
+    pricePerNight: {
         type: Number,
         required: true
     },
-    streetAddress: {
-        type: String,
-        required: true
-    },
-    city: {
-        type: String,
-        required: true
-    },
-    zipCode: {
-        type: Number,
-        required: true
+    address: {
+        street: { type: String, required: true },
+        city: { type: String, required: true },
+        state: { type: String, required: true },
+        zipCode: { type: Number, required: true }
     },
     beds: {
         type: Number,
