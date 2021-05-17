@@ -7,6 +7,8 @@
   "scripts": {
     "start": "node --experimental-modules server.js",
     "server": "nodemon --experimental-modules server.js",
+    "import": "node seeder",
+    "delete": "node seeder -d",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
