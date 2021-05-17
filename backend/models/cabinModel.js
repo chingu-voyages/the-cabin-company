@@ -14,18 +14,24 @@ const cabinSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    city: {
+        type: String,
+        required: true
+    },
     zipCode: {
         type: Number,
         required: true
     },
     beds: {
-        type: Number
+        type: Number,
+        default: 1
     },
     baths: {
-        type: Number
+        type: Number,
+        default: 1
     },
     image: {
-        type: String
+        type: String,
     }
 });
 
