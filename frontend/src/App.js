@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 import { Navbar } from './components/Navbar';
 import LandingPage from './components/LandingPage';
+import CabinsPage from './components/CabinsPage';
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
         <ChakraProvider theme={theme}>
           <Navbar />
           <Route exact path="/" component={LandingPage} />
+          <Route path="/cabins" component={CabinsPage} />
         </ChakraProvider>
       </BrowserRouter>
     );
