@@ -10,7 +10,7 @@ const cabins = [
         },
         beds: 3,
         baths: 2,
-        image: "https://www.pexels.com/photo/brown-house-near-pine-trees-covered-with-snow-754268/",
+        image: "https://images.pexels.com/photos/754268/pexels-photo-754268.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
 
     },
     {
@@ -24,7 +24,7 @@ const cabins = [
         },
         beds: 5,
         baths: 3,
-        image: "https://www.pexels.com/photo/brown-2-storey-house-2294125/",
+        image: "https://images.pexels.com/photos/2294125/pexels-photo-2294125.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
 
     },
     {
@@ -38,7 +38,7 @@ const cabins = [
         },
         beds: 3,
         baths: 1,
-        image: "https://www.pexels.com/photo/autumn-autumn-leaves-beautiful-color-206648/",
+        image: "https://images.pexels.com/photos/206648/pexels-photo-206648.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
 
     },
     {
@@ -52,7 +52,7 @@ const cabins = [
         },
         beds: 2,
         baths: 2,
-        image: "https://www.pexels.com/photo/autumn-autumn-leaves-beautiful-color-206648/",
+        image: "https://images.pexels.com/photos/577697/pexels-photo-577697.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
 
     }
 ];

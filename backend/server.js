@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import cabinRoutes from './routes/cabinRoutes.js';
 
@@ -8,6 +9,7 @@ dotenv.config();
 
 //Initialize express application
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 //Connect MongoDb database

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Box, Flex, Heading, Spacer } from '@chakra-ui/react';
 
 export const Navbar = () => {
@@ -8,7 +9,9 @@ export const Navbar = () => {
         <Heading size="sm">Nomad</Heading>
       </Box>
       <Spacer />
-      <Box></Box>
+      <Box>
+        <Link to="/cabins">Cabins</Link>
+      </Box>
     </Flex>
   );
 };
