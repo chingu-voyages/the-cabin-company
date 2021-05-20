@@ -4,7 +4,6 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import section3Images from './section3Images';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
-import './LandingPage.css';
 
 const useStyles = makeStyles(theme => ({
   root: {
