@@ -2,7 +2,7 @@ import { React, Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 import { Navbar } from './components/Navbar';
-import LandingPage from './components/LandingPage';
+import LandingPage from './components/LandingPage/LandingPage';
 
 class App extends Component {
   render() {
