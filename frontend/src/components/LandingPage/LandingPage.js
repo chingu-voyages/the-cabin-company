@@ -1,15 +1,13 @@
 import React from 'react';
 import MainPhoto from './MainPhoto';
 import SingleLineGrid from './SingleLineGrid';
+import MultiLineGrid from './MultiLineGrid';
 
 export default function LandingPage() {
   return (
     <div>
       <MainPhoto />
-      <section>
-        {/* grid of small pics */}
-        <h2>Explore nearby</h2>
-      </section>
+      <MultiLineGrid />
       <SingleLineGrid />
     </div>
   );
