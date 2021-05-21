@@ -6,7 +6,6 @@ import section3Images from './section3Images';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import MainPhoto from './MainPhoto';
 
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -29,11 +28,8 @@ export default function LandingPage() {
 
   return (
     <div>
-      <section>
-        {/* banner pic goes here */}
-        <MainPhoto />
-        <h2>Enjoy Our Cabins</h2>
-      </section>
+      <MainPhoto />
+
       <section>
         {/* grid of small pics */}
         <h2>Explore nearby</h2>
