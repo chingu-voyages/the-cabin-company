@@ -4,6 +4,7 @@ import { ChakraProvider, theme } from '@chakra-ui/react';
 import { Navbar } from './components/Navbar';
 import LandingPage from './components/LandingPage/LandingPage';
 
+
 class App extends Component {
   render() {
     return (

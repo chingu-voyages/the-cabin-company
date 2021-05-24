@@ -2,7 +2,7 @@ import React from 'react';
 import MainPhoto from './MainPhoto';
 import SingleLineGrid from './SingleLineGrid';
 import MultiLineGrid from './MultiLineGrid';
-import Calendar from './Calendar';
+// import Calendar from './Calendar';
 
 export default function LandingPage() {
   return (
@@ -10,7 +10,7 @@ export default function LandingPage() {
       <MainPhoto />
       <MultiLineGrid />
       <SingleLineGrid />
-      <Calendar />
+      {/* <Calendar /> */}
     </div>
   );
 }

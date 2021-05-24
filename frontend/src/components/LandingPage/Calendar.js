@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { createTheme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -81,3 +81,5 @@ export default function CustomDay() {
     </LocalizationProvider>
   );
 }
+
+
