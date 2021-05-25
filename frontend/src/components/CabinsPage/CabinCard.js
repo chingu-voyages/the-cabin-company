@@ -31,7 +31,11 @@ const CabinCard = ({ cabin }) => {
   let history = useHistory();
 
   const bookingHandler = () => {
-    history.push(`/cabin-details`);
+    //history.push(`/cabin-details`);
+    history.push({
+      pathname: '/cabin-details',
+      state: cabin,
+    });
   };
 
   return (
@@ -62,7 +66,7 @@ const CabinCard = ({ cabin }) => {
               color="primary"
               onClick={bookingHandler}
             >
-              Book now
+              Details
             </Button>
           </CardActions>
         </div>
