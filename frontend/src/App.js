@@ -4,6 +4,7 @@ import { ChakraProvider, theme } from '@chakra-ui/react';
 import { Navbar } from './components/Navbar';
 import LandingPage from './components/LandingPage/LandingPage';
 import CabinsPage from './components/CabinsPage/CabinsPage';
+import CabinDetails from './components/CabinDetails/CabinDetails';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <Navbar />
           <Route exact path="/" component={LandingPage} />
           <Route path="/cabins" component={CabinsPage} />
+          <Route path="/cabin-details" component={CabinDetails} />
         </ChakraProvider>
       </BrowserRouter>
     );
