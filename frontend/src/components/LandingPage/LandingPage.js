@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MainPhoto from './MainPhoto';
 import SingleLineGrid from './SingleLineGrid';
 import MultiLineGrid from './MultiLineGrid';
-import DateRangePickerCalendar from '../DateRangePicker/DatePickerCalendar';
+import DateRangePicker from '../DateRangePicker/DatePickerCalendar';
 
 
 export default function LandingPage() {
@@ -11,7 +11,7 @@ export default function LandingPage() {
       <MainPhoto />
       <MultiLineGrid />
       <SingleLineGrid />
-      <DateRangePickerCalendar />
+      <DateRangePicker />
      
      
       
