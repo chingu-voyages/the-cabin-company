@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { flexbox } from '@material-ui/system';
-import { spacing } from '@material-ui/system';
+import { useHistory } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -29,11 +28,17 @@ const useStyles = makeStyles(theme => ({
 
 function MainPhoto() {
   const classes = useStyles();
+  let history = useHistory();
+
   const mainFeaturedPost = {
     title: 'Explore our cabins',
     image: section1Image[0].img,
     imgText: 'Main image',
     linktext: 'Search',
+  };
+
+  const searchRedirect = () => {
+    history.push(`/cabins`);
   };
 
   return (
@@ -76,7 +81,7 @@ function MainPhoto() {
               pt={10}
               pb={5}
             >
-              <Link href="#" style={{ color: 'white' }}>
+              <Link onClick={searchRedirect} style={{ color: 'white' }}>
                 {mainFeaturedPost.linktext}
               </Link>
             </Box>
