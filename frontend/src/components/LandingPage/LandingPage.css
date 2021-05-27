@@ -1,0 +1,14 @@
+.multigrid-images {
+  border-radius: 5%;
+  height: 50%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.multigrid-div {
+  display: flex;
+  align-content: space-around;
+  justify-content: center;
+  margin-bottom: 2em;
+}
