@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MainPhoto from './MainPhoto';
 import SingleLineGrid from './SingleLineGrid';
 import MultiLineGrid from './MultiLineGrid';
-// import Calendar from './Calendar';
+import DateRangePicker from '../DateRangePicker/DatePickerCalendar';
+
 
 export default function LandingPage() {
   return (
@@ -10,7 +11,10 @@ export default function LandingPage() {
       <MainPhoto />
       <MultiLineGrid />
       <SingleLineGrid />
-      {/* <Calendar /> */}
+      <DateRangePicker />
+     
+     
+      
     </div>
   );
 }
