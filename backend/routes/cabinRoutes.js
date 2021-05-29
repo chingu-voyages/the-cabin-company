@@ -9,6 +9,9 @@ router.route('/')
     .post(cabinController.createCabin);
 
 router.route('/:id')
-    .get(cabinController.getCabinById);
+    .get(cabinController.getCabinById)
+    .post(cabinController.bookCabin)
+    .patch(cabinController.payBooking);
+
 
 export default router;
