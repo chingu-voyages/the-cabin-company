@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import LoadingSpinner from '../LoadingSpinner';
+import Message from '../Message';
 
 const useStyles = makeStyles({
   root: {
@@ -30,11 +31,13 @@ const useStyles = makeStyles({
 });
 
 const CabinDetails = props => {
-  const { name, pricePerNight, address, beds, baths, image, _id } =
+  const { name, address, beds, baths, image, _id } =
     props.location.state;
 
   const [sdkLoaded, setSdkLoaded] = useState(false);
   const [booking, setBooking] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const classes = useStyles();
 
@@ -64,22 +67,30 @@ const CabinDetails = props => {
   //Book cabin and save dates in database
   const bookingHandler = async () => {
     const newBooking = {
-      checkIn: new Date('2021-12-21'), //change to calendar date picker
-      checkOut: new Date('2021-12-23') //change to calendar date picker
+      checkIn: new Date('2021-6-21'), //change to calendar date picker
+      checkOut: new Date('2021-6-23') //change to calendar date picker
     };
     try {
       const { data } = await axios.post(`http://localhost:5000/api/cabins/${_id}`, newBooking, { 'Content-type': 'application/json' });
       setBooking(data.booking);
-      console.log(booking);
+
     } catch (err) {
-      console.log(err.message);
+      setError(err.response.data.message);
     }
   };
 
   //When paypal payment is successful, update booking to paid status in database
   const successfulPaymentHandler = async (paymentResult) => {
-    const { data } = await axios.patch(`http://localhost:5000/api/cabins/${_id}`, { paymentResult, booking }, { 'Content-type': 'application/json' });
-    booking(data.booking);
+    setLoading(true);
+    try {
+      const { data } = await axios.patch(`http://localhost:5000/api/cabins/${_id}`, { paymentResult, booking }, { 'Content-type': 'application/json' });
+      setBooking(data.booking);
+      setLoading(false);
+    } catch (err) {
+      setError(err.response.data.message);
+      setLoading(false);
+    }
+
   };
 
   return (
@@ -106,7 +117,9 @@ const CabinDetails = props => {
       {/* Pricing goes here */}
 
       <Button onClick={bookingHandler}>Book</Button>
-
+      {loading && <LoadingSpinner />}
+      {error && <Message severity="error" message={error} />}
+      {booking && booking.isPaid && <Message severity="success" message="Your payment has been received! Thank you for booking with us!" />}
       {/* PayPal buttons */}
       {booking && !booking.isPaid && (
         <Card className={classes.paypal}>

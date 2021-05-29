@@ -100,8 +100,9 @@ export const payBooking = asyncHandler(async (req, res) => {
     // Add payment details to order instance
     if (cabin) {
         cabin.bookings.map(b => console.log(b._id));
-        console.log(booking._id);
-        const paidBooking = cabin.bookings.find(b => +b._id === +booking._id);
+        console.log(typeof (booking._id));
+        console.log(typeof (cabin.bookings));
+        const paidBooking = cabin.bookings.find(b => b._id.toString() === booking._id.toString());
 
         paidBooking.isPaid = true;
         paidBooking.paymentResult = {
