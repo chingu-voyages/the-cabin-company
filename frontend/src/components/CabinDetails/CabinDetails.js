@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import DateRangePickerCalendar from './DateRangePicker/DateRangePickerCalendar';
 
 const useStyles = makeStyles({
   root: {
@@ -47,6 +48,7 @@ const CabinDetails = props => {
       </Card>
 
       {/* Calendar goes here */}
+      <DateRangePickerCalendar />
       {/* Pricing goes here */}
 
       <Button>Book</Button>
