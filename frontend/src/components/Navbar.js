@@ -6,7 +6,9 @@ export const Navbar = () => {
   return (
     <Flex align="center" boxShadow="base" p="2" mb="2">
       <Box p="2">
-        <Heading size="lg">The Cabin Company</Heading>
+        <Heading size="lg">
+          <Link to="/">The Cabin Company</Link>
+        </Heading>
       </Box>
       <Spacer />
     </Flex>
