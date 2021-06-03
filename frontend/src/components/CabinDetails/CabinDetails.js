@@ -16,6 +16,9 @@ const useStyles = makeStyles({
   root: {
     minWidth: 275,
   },
+  image: {
+    maxHeight: 745,
+  },
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
@@ -104,7 +107,7 @@ const CabinDetails = props => {
 
   return (
     <div className="wrapper">
-      <img src={image}></img>
+      <img src={image} className={classes.image}></img>
 
       <Card className={classes.root}>
         <CardContent className="cabin-info">
