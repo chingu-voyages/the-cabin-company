@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import LoadingSpinner from '../LoadingSpinner';
 import Message from '../Message';
+import DateRangePickerCalendar from './DateRangePicker/DateRangePickerCalendar';
+import './CabinDetails.css';
 
 const useStyles = makeStyles({
   root: {
@@ -114,6 +116,16 @@ const CabinDetails = props => {
       </Card>
 
       {/* Calendar goes here */}
+      <div className="calendar-pricing">
+        <div>
+          <DateRangePickerCalendar />
+        </div>
+
+        <div>
+          <p>Pricing goes here</p>
+        </div>
+      </div>
+
       {/* Pricing goes here */}
 
       <Button onClick={bookingHandler}>Book</Button>
