@@ -1,5 +1,22 @@
 import mongoose from 'mongoose';
 
+const bookingSchema = mongoose.Schema({
+    checkIn: {
+        type: Date,
+        required: true
+    },
+    checkOut: {
+        type: Date,
+        required: true
+    },
+    numNights: Number,
+    totalPrice: Number,
+    isPaid: {
+        type: Boolean,
+        default: false
+    }
+});
+
 const cabinSchema = mongoose.Schema({
     name: {
         type: String,
@@ -26,7 +43,8 @@ const cabinSchema = mongoose.Schema({
     },
     image: {
         type: String,
-    }
+    },
+    bookings: [bookingSchema]
 });
 
 const Cabin = mongoose.model('Cabin', cabinSchema);
