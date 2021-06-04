@@ -4,6 +4,8 @@ import { enGB } from 'date-fns/locale';
 import { DateRangePickerCalendar, START_DATE } from 'react-nice-dates';
 import 'react-nice-dates/build/style.css';
 import CardContent from '@material-ui/core/CardContent';
+import './DateRangePickerCalendar.css';
+
 export default function DateRangePickerCalendarExample() {
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();

@@ -84,34 +84,6 @@ const cabins = [
       'https://images.pexels.com/photos/2893177/pexels-photo-2893177.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
   },
   {
-    name: 'Snow Cabin',
-    pricePerNight: 150,
-    address: {
-      street: '78 React Lane',
-      city: 'Pinecrest',
-      state: 'California',
-      zipCode: 95364,
-    },
-    beds: 1,
-    baths: 1,
-    image:
-      'https://images.pexels.com/photos/6526181/pexels-photo-6526181.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
-  },
-  {
-    name: 'Tropical Escape',
-    pricePerNight: 150,
-    address: {
-      street: '02 React Lane',
-      city: 'Weston',
-      state: 'Florida',
-      zipCode: 33332,
-    },
-    beds: 1,
-    baths: 1,
-    image:
-      'https://images.pexels.com/photos/1795506/pexels-photo-1795506.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-  },
-  {
     name: 'The Wooden Houses ',
     pricePerNight: 150,
     address: {
