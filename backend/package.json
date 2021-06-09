@@ -10,7 +10,7 @@
     "import": "node seeder",
     "delete": "node seeder -d",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd .. && npm install --prefix frontend && npm run build --prefix frontend"
+    "heroku-postbuild": "cd ../frontend && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
