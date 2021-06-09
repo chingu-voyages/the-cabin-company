@@ -14,11 +14,11 @@ export default function DateRangePickerCalendarExample(props) {
     setFocus(newFocus || START_DATE);
   };
 
+  //Get all checkin and checkout dates for existing bookings
   const existingCheckins = props.bookings.map(b => dateFns.format(new Date(b.checkIn), 'MM-dd-yyyy'));
-
   const existingCheckouts = props.bookings.map(b => dateFns.format(new Date(b.checkOut), 'MM-dd-yyyy'));
 
-
+  //Check whether date is already booked and disable it in calendar
   const checkDate = (date) => {
     let dateIsBooked;
     props.bookings.forEach(b => {
