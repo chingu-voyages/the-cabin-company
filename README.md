@@ -1,14 +1,48 @@
-voyage-tasks
+# The Cabin Company
+The Cabin Company is a vacation rental website.
 
-Your project's `readme` is as important to success as your code. For
-this reason you should but as much care into it's creation and maintenance steps
-as you would any other component of the application.
+Browse our listings and find the perfect cabin for your next adventure!
 
-If you are unsure of what should go into the `readme` let this article
-written by another Chingu be your starting point -
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+## Screenshots
 
-And before we go there's "one more thing"! Once you've decide what to include
-in your `readme` feel free to replace the text we've provided here.
 
-> Own it & Make it your Own!
+### Home page
+![homepage](screenshots/homepage-view.png)
+
+### View all our cabins
+![listing](screenshots/listing-view.png)
+
+
+### View a cabin details and availability
+![cabin](screenshots/cabin-view.png)
+
+### Book through Paypal
+![booking](screenshots/booking-view.png)
+
+
+## Features to come
+* Authentication and ability to create a profile
+* Ability to register as a host and add a cabin in the list  
+
+
+## Built and designed with
+* React
+* Material UI
+* Node.js
+* Paypal API
+* MongoDB
+* Javascript
+* CSS
+* HTML
+
+## Live App
+- To be added soon
+
+## Running the project locally
+Please see all information in the frontend folder README.md
+
+## Contributors
+* @alatruwe https://github.com/alatruwe
+* @carlosabreuh https://github.com/carlosabreuh
+* @clairesmith11 https://github.com/clairesmith11
+* @rmtwombly https://github.com/rmtwombly
