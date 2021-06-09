@@ -9,7 +9,8 @@
     "server": "nodemon --experimental-modules server.js",
     "import": "node seeder",
     "delete": "node seeder -d",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd ../frontend && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
