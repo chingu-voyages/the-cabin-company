@@ -37,10 +37,12 @@ const useStyles = makeStyles({
 });
 
 const CabinDetails = props => {
-  const { name, address, beds, baths, image, _id } = props.location.state;
+  const { name, address, beds, baths, image, _id, bookings, pricePerNight } = props.location.state;
 
   const [sdkLoaded, setSdkLoaded] = useState(false);
   const [booking, setBooking] = useState(null);
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -73,9 +75,10 @@ const CabinDetails = props => {
   //Book cabin and save dates in database
   const bookingHandler = async () => {
     const newBooking = {
-      checkIn: new Date('2021-6-21'), //change to calendar date picker
-      checkOut: new Date('2021-6-23'), //change to calendar date picker
+      checkIn: startDate,
+      checkOut: endDate
     };
+    setLoading(true);
     try {
       const { data } = await axios.post(
         `http://localhost:5000/api/cabins/${_id}`,
@@ -83,8 +86,10 @@ const CabinDetails = props => {
         { 'Content-type': 'application/json' }
       );
       setBooking(data.booking);
+      setLoading(false);
     } catch (err) {
       setError(err.response.data.message);
+      setLoading(false);
     }
   };
 
@@ -107,7 +112,7 @@ const CabinDetails = props => {
 
   return (
     <div className="wrapper">
-      <img src={image} className={classes.image}></img>
+      <img src={image} className={classes.image} alt="Cabin"></img>
 
       <Card className={classes.root}>
         <CardContent className="cabin-info">
@@ -131,7 +136,10 @@ const CabinDetails = props => {
           <Typography align="center" variant="h5">
             Select dates
           </Typography>
-          <DateRangePickerCalendar />
+          <DateRangePickerCalendar
+            start={(date) => setStartDate(date)}
+            end={(date) => setEndDate(date)}
+            bookings={bookings} />
         </div>
 
         {/* Pricing goes here */}
@@ -139,7 +147,7 @@ const CabinDetails = props => {
           <Typography align="center" variant="h5" gutterBottom>
             Price details
           </Typography>
-          <Pricing />
+          <Pricing price={pricePerNight} startDate={startDate} endDate={endDate} />
         </div>
       </div>
 
