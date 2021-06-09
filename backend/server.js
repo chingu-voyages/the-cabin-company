@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import path from 'path';
 
 import cabinRoutes from './routes/cabinRoutes.js';
 
@@ -33,6 +34,13 @@ connectToDb();
 app.use('/api/cabins', cabinRoutes);
 app.get('/api/config/paypal', (req, res) => res.send(process.env.PAYPAL_CLIENT_ID));
 
+
+if (process.env.NODE_ENV === 'production') {
+    const __dirname = path.resolve();
+    app.use(express.static(path.join(__dirname, '../frontend/build')));
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'frontend', 'build', 'index.html')));
+}
+
 //Error handing for unhandled routes
 app.use((req, res, next) => {
     const error = new Error('Route not found');
@@ -50,4 +58,5 @@ app.use((err, req, res, next) => {
 });
 
 //Start server
-app.listen(4000, () => console.log(`Listening on port ${process.env.PORT}...`));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Listening on port ${PORT}...`));
