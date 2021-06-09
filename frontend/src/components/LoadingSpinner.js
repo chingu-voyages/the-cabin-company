@@ -1,12 +1,22 @@
 import React from 'react';
-import { Spinner } from "@chakra-ui/react";
+import { makeStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-const LoadingSpinner = () => {
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+        '& > * + *': {
+            marginLeft: theme.spacing(2),
+        },
+    },
+}));
+
+export default function LoadingSpinner() {
+    const classes = useStyles();
+
     return (
-        <div align="center">
-            <Spinner />
+        <div className={classes.root}>
+            <CircularProgress />
         </div>
     );
-};
-
-export default LoadingSpinner;
+}

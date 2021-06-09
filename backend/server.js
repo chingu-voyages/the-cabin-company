@@ -31,6 +31,7 @@ connectToDb();
 
 //Routing
 app.use('/api/cabins', cabinRoutes);
+app.get('/api/config/paypal', (req, res) => res.send(process.env.PAYPAL_CLIENT_ID));
 
 //Error handing for unhandled routes
 app.use((req, res, next) => {
@@ -49,4 +50,4 @@ app.use((err, req, res, next) => {
 });
 
 //Start server
-app.listen(5000, () => console.log(`Listening on port ${process.env.PORT}...`));
+app.listen(4000, () => console.log(`Listening on port ${process.env.PORT}...`));

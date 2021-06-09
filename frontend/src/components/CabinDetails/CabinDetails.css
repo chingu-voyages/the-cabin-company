@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 65%;
+}
+
+.cabin-info {
+  text-align: center;
+}
+
+.calendar-pricing {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5%;
+}
+
+.calendar {
+  flex-grow: 0.5;
+}
+
+.pricing {
+  display: flex;
+  flex-direction: column;
+}
