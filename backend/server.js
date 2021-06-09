@@ -50,4 +50,4 @@ app.use((err, req, res, next) => {
 });
 
 //Start server
-app.listen(5000, () => console.log(`Listening on port ${process.env.PORT}...`));
+app.listen(4000, () => console.log(`Listening on port ${process.env.PORT}...`));

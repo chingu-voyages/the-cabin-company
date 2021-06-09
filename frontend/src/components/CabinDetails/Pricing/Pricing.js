@@ -22,9 +22,10 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Pricing() {
+export default function Pricing({ price, startDate, endDate }) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+  //const bull = <span className={classes.bullet}>•</span>;
+  const numNights = startDate && endDate ? (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24) : 0;
 
   return (
     <Card className={classes.root}>
@@ -40,11 +41,11 @@ export default function Pricing() {
         <div className="price-details">
           <div>
             <Typography variant="body2" gutterBottom>
-              $250
+              ${price}
             </Typography>
           </div>
           <div>
-            <Typography variant="body2">1 night</Typography>
+            <Typography variant="body2">{numNights + ' nights'}</Typography>
           </div>
         </div>
         {/* Total: total to pay */}
@@ -53,7 +54,7 @@ export default function Pricing() {
             <Typography variant="h6">Total:</Typography>
           </div>
           <div>
-            <Typography variant="h5">$250</Typography>
+            <Typography variant="h5">${price * numNights}</Typography>
           </div>
         </div>
       </CardContent>
