@@ -37,7 +37,8 @@ const useStyles = makeStyles({
 });
 
 const CabinDetails = props => {
-  const { name, address, beds, baths, image, _id, bookings, pricePerNight } = props.location.state;
+  const { name, address, beds, baths, image, _id, bookings, pricePerNight } =
+    props.location.state;
 
   const [sdkLoaded, setSdkLoaded] = useState(false);
   const [booking, setBooking] = useState(null);
@@ -76,7 +77,7 @@ const CabinDetails = props => {
   const bookingHandler = async () => {
     const newBooking = {
       checkIn: startDate,
-      checkOut: endDate
+      checkOut: endDate,
     };
     setLoading(true);
     try {
@@ -137,9 +138,10 @@ const CabinDetails = props => {
             Select dates
           </Typography>
           <DateRangePickerCalendar
-            start={(date) => setStartDate(date)}
-            end={(date) => setEndDate(date)}
-            bookings={bookings} />
+            start={date => setStartDate(date)}
+            end={date => setEndDate(date)}
+            bookings={bookings}
+          />
         </div>
 
         {/* Pricing goes here */}
@@ -147,7 +149,11 @@ const CabinDetails = props => {
           <Typography align="center" variant="h5" gutterBottom>
             Price details
           </Typography>
-          <Pricing price={pricePerNight} startDate={startDate} endDate={endDate} />
+          <Pricing
+            price={pricePerNight}
+            startDate={startDate}
+            endDate={endDate}
+          />
         </div>
       </div>
 
@@ -165,18 +171,20 @@ const CabinDetails = props => {
         />
       )}
       {/* PayPal buttons */}
-      {booking && !booking.isPaid && (
-        <Card className={classes.paypal}>
-          {!sdkLoaded ? (
-            <LoadingSpinner />
-          ) : (
-            <PayPalButton
-              amount={booking.totalPrice}
-              onSuccess={successfulPaymentHandler}
-            />
-          )}
-        </Card>
-      )}
+      <div className="paypal">
+        {booking && !booking.isPaid && (
+          <Card className={classes.paypal}>
+            {!sdkLoaded ? (
+              <LoadingSpinner />
+            ) : (
+              <PayPalButton
+                amount={booking.totalPrice}
+                onSuccess={successfulPaymentHandler}
+              />
+            )}
+          </Card>
+        )}
+      </div>
     </div>
   );
 };

@@ -23,3 +23,8 @@
   display: flex;
   flex-direction: column;
 }
+
+.paypal {
+  display: flex;
+  justify-content: center;
+}
