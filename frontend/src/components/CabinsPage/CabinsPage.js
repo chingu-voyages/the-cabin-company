@@ -51,7 +51,7 @@ const CabinsPage = () => {
     const fetchCabins = async () => {
       setLoading(true);
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/cabins`);
+        const { data } = await axios.get(`/api/cabins`);
         setCabins(data.cabins);
         setFilteredCabins(data.cabins);
         setLoading(false);

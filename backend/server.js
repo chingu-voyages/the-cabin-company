@@ -16,7 +16,7 @@ app.use(express.json());
 //Connect MongoDb database
 const connectToDb = async () => {
     try {
-        const connection = await mongoose.connect('mongodb+srv://bears-05:chingu2021@cluster0.sjx8p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+        const connection = await mongoose.connect(process.env.MONGODB_URI, {
             useUnifiedTopology: true,
             useNewUrlParser: true,
             useCreateIndex: true

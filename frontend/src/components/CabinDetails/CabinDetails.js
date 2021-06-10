@@ -53,7 +53,7 @@ const CabinDetails = props => {
   useEffect(() => {
     const paypalScript = async () => {
       const { data } = await axios.get(
-        'http://localhost:5000/api/config/paypal'
+        '/api/config/paypal'
       );
       const script = document.createElement('script');
       script.type = 'text/javascript';
@@ -82,7 +82,7 @@ const CabinDetails = props => {
     setLoading(true);
     try {
       const { data } = await axios.post(
-        `http://localhost:5000/api/cabins/${_id}`,
+        `/api/cabins/${_id}`,
         newBooking,
         { 'Content-type': 'application/json' }
       );
@@ -99,7 +99,7 @@ const CabinDetails = props => {
     setLoading(true);
     try {
       const { data } = await axios.patch(
-        `http://localhost:5000/api/cabins/${_id}`,
+        `/api/cabins/${_id}`,
         { paymentResult, booking },
         { 'Content-type': 'application/json' }
       );
