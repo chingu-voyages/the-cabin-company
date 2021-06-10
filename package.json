@@ -5,12 +5,12 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "start": "node --experimental-modules server.js",
-    "server": "nodemon --experimental-modules server.js",
-    "import": "node seeder",
-    "delete": "node seeder -d",
+    "start": "node --experimental-modules backend/server.js",
+    "server": "nodemon --experimental-modules backend/server.js",
+    "import": "node backend/seeder",
+    "delete": "node backend/seeder -d",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd ../frontend && npm install && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
   "license": "ISC",
