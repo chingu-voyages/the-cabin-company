@@ -1,10 +1,11 @@
+## Frontend Scripts
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+In the frontend directory, you can run:
 
-In the project directory, you can run:
-
-### `yarn start`
+#### `npm install`
+#### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -12,57 +13,212 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+## Backend Scripts
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In the backend directory, you can run:
 
-### `yarn build`
+#### `npm install`
+#### `npm run server`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## API
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+This API uses GET and POST requests to manage The Cabin Company content.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+All responses come in standard JSON.
+All requests must include a content-type of application/json and the body must be valid JSON.
 
-### `yarn eject`
+## Failed Resquests and response:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+For all endpoints, upon receiving a bad request you get:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Failed Response:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```json
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+{
+    "error": "error message here"
+}
+```
 
-## Learn More
+## Endpoints:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Listing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**You get:** A list of all cabins and for each cabin:
 
-### Code Splitting
+- id => string
+- name => string
+- pricePerNight => number
+- address => object
+- beds => number
+- baths => number
+- image => string
+- bookings => object
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+**Request:**
 
-### Analyzing the Bundle Size
+```json
+GET /api/cabins/ HTTP/1.1
+Content-Type: application/json
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+**Successful Response:**
 
-### Making a Progressive Web App
+```json
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+[
+  {
+    "cabins": [
+        {
+            "address": {
+                "street": "123 Main St",
+                "city": "Portland",
+                "state": "Maine",
+                "zipCode": 14019
+            },
+            "beds": 3,
+            "baths": 2,
+            "_id": "60b9496354ac21f5f14c96be",
+            "name": "Snowy Bungalow",
+            "pricePerNight": 150,
+            "image": "https://images.pexels.com/photos/754268/pexels-photo-754268.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            "bookings": [
+                {
+                    "isPaid": true,
+                    "_id": "60c0f50e6c1afd20847e9e23",
+                    "checkIn": "2021-06-16T04:00:00.000Z",
+                    "checkOut": "2021-06-19T04:00:00.000Z",
+                    "numNights": 3,
+                    "totalPrice": 450
+                }
+            ]
+        },
+        {
+            "address": {
+                "street": "123 Chingu Road",
+                "city": "Denver",
+                "state": "Colorado",
+                "zipCode": 80014
+            },
+            "beds": 5,
+            "baths": 3,
+            "_id": "60b9496354ac21f5f14c96bf",
+            "name": "Mountain Getaway",
+            "pricePerNight": 275,
+            "image": "https://images.pexels.com/photos/2294125/pexels-photo-2294125.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+            "bookings": [
+                {
+                    "isPaid": false,
+                    "_id": "60c0ed696c1afd20847e9e1f",
+                    "checkIn": "2021-06-10T04:00:00.000Z",
+                    "checkOut": "2021-06-12T04:00:00.000Z",
+                    "numNights": 2,
+                    "totalPrice": 550
+                }
+            ]
+        }
+]
+```
 
-### Advanced Configuration
+## Cabin details
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+**You send:** The cabin id.
 
-### Deployment
+**You get:** The cabin details:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- id => string
+- name => string
+- pricePerNight => number
+- address => object
+- beds => number
+- baths => number
+- image => string
+- bookings => object
 
-### `yarn build` fails to minify
+**Request:**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```json
+GET /api/cabins/:id HTTP/1.1
+Content-Type: application/json
+
+```
+
+**Successful Response:**
+
+```json
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+  {
+      "address": {
+        "street": "123 Chingu Road",
+        "city": "Denver",
+        "state": "Colorado",
+        "zipCode": 80014
+    },
+    "beds": 5,
+    "baths": 3,
+    "_id": "60b9496354ac21f5f14c96bf",
+    "name": "Mountain Getaway",
+    "pricePerNight": 275,
+    "image": "https://images.pexels.com/photos/2294125/pexels-photo-2294125.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    "bookings": [
+        {
+            "isPaid": false,
+            "_id": "60c0ed696c1afd20847e9e1f",
+            "checkIn": "2021-06-10T04:00:00.000Z",
+            "checkOut": "2021-06-12T04:00:00.000Z",
+            "numNights": 2,
+            "totalPrice": 550
+        }
+    ]
+  }  
+]
+```
+
+## Book a cabin
+
+**You send:** The check-in date, the check-out date.
+
+**You get:** The booking details:
+
+- id => string
+- checkIn => string
+- checkOut => string
+- numNights => number
+- totalPrice => number
+- isPaid => boolean
+
+**Request:**
+
+```json
+POST /api/cabins/:id HTTP/1.1
+Content-Type: application/json
+
+```
+
+**Successful Response:**
+
+```json
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+[
+  {
+          "booking": {
+        "isPaid": false,
+        "_id": "60c13e46c4afb63774beca40",
+        "checkIn": "2020-08-16T04:00:00.000Z",
+        "checkOut": "2020-08-19T04:00:00.000Z",
+        "numNights": 3,
+        "totalPrice": 825
+        }
+  }  
+]
+```
+

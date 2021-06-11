@@ -1,6 +1,28 @@
 {
+  "name": "v30-bears-team-05-backend",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --experimental-modules backend/server.js",
+    "server": "nodemon --experimental-modules backend/server.js",
+    "import": "node backend/seeder",
+    "delete": "node backend/seeder -d",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
   "dependencies": {
-    "@material-ui/core": "^4.11.4",
-    "react-router-dom": "^5.2.0"
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "mongoose": "^5.12.8"
   }
 }
