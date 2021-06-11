@@ -173,16 +173,29 @@ const CabinDetails = props => {
       {/* PayPal buttons */}
       <div className="paypal">
         {booking && !booking.isPaid && (
-          <Card className={classes.paypal}>
-            {!sdkLoaded ? (
-              <LoadingSpinner />
-            ) : (
-              <PayPalButton
-                amount={booking.totalPrice}
-                onSuccess={successfulPaymentHandler}
-              />
-            )}
-          </Card>
+          <div>
+            <Card className={classes.paypal}>
+              {!sdkLoaded ? (
+                <LoadingSpinner />
+              ) : (
+                <PayPalButton
+                  amount={booking.totalPrice}
+                  onSuccess={successfulPaymentHandler}
+                />
+              )}
+            </Card>
+            <Card>
+              <Typography align="left" variant="subtitle1" gutterBottom>
+                Demo credentials
+              </Typography>
+              <Typography align="left" variant="body2" gutterBottom>
+                email: sb-ves0k6331633@personal.example.com
+              </Typography>
+              <Typography align="left" variant="body2" gutterBottom>
+                password: =M7uGz@4
+              </Typography>
+            </Card>
+          </div>
         )}
       </div>
     </div>
