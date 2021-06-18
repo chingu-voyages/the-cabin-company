@@ -42,7 +42,8 @@ Browse our listings and find the perfect cabin for your next adventure!
 Please see all information in the frontend folder README.md
 
 ## Contributors
-* @alatruwe https://github.com/alatruwe
-* @carlosabreuh https://github.com/carlosabreuh
-* @clairesmith11 https://github.com/clairesmith11
-* @rmtwombly https://github.com/rmtwombly
+* Product Owner: @rmtwombly https://github.com/rmtwombly 
+* Software Engineer: @alatruwe https://github.com/alatruwe
+* Software Engineer: @carlosabreuh https://github.com/carlosabreuh
+* Software Engineer: @clairesmith11 https://github.com/clairesmith11
+
